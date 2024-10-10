@@ -118,8 +118,40 @@ public class TechJobs {
     }
 
     // Print a list of jobs
-    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+    //Chp 3 > ArrayList Iteration did not help
+    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) { //given
+       if (someJobs.size() == 0){
+           System.out.println("No Results");
+       } else{
+        for (int i = 0; i < someJobs.size(); i++) {
+            System.out.println("\n*****\n" +
+                    "position type: " + someJobs.get(i).get("position type") +
+                    "\nname: " + someJobs.get(i).get("name") +
+                    "\nemployer: " + someJobs.get(i).get("employer") +
+                    "\nlocation: " + someJobs.get(i).get("location") +
+                    "\ncore competency: " + someJobs.get(i).get("core competency") +
+                    "\n*****"
+            );
+        }
+        }
 
-        System.out.println("printJobs is not implemented yet");
+
+        //Iterates over a hashmap. Has correct output. Outputs everything not just some of the jobs
+//            for (HashMap<String, String> allJob : JobData.allJobs) {
+//                System.out.println("*****\nposition type: " + allJob.get("position type")+
+//                "\nname: "+ allJob.get("name")+
+//                "\nemployer: "+ allJob.get("employer")+
+//                "\nlocation: "+ allJob.get("location")+
+//                "\ncore competency: "+ allJob.get("core competency")+
+//                "\n*****\n");
+//            }
+
+
+        //System.out.println("printJobs is not implemented yet");
+        //System.out.println(JobData.allJobs.size()); //89 currently
+        //HashMap<String, String>[] allJobsArray = new HashMap<>[JobData.allJobs.size()]);
+        //JobData.allJobs.toArray(allJobsArray);
+        //System.out.println(allJobsArray);
+        //System.out.println(JobData.allJobs); //prints out the entire arraylist of HashMaps
     }
 }
