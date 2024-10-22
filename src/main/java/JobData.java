@@ -35,7 +35,6 @@ public class JobData {
         ArrayList<String> values = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            //field.toUpperCase()//to make field uppercase
             String aValue = row.get(field);
 
             if (!values.contains(aValue)) { //add !values.toString.toUpperCase().contains(aValue.toUpperCase()) ?
