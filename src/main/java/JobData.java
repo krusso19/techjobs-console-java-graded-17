@@ -75,8 +75,9 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
+            String upperAValue = aValue.toUpperCase();
 
-            if (aValue.contains(value)) {
+            if (upperAValue.contains(value.toUpperCase())) {
                 jobs.add(row);
             }
         }
@@ -96,17 +97,13 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> fbvJobs = new ArrayList<>(); //creates array list fbvJobs to store the jobs
-//        for (int i = 0; i < allJobs.size(); i++){ //creates loop that will iterate through all of the jobs in allJobs ArrayList
-//            if (allJobs[i].containsKey(value) || allJobs[i].containsValue(value)){ //if allJobs at i contains the value as a key or value (not part of it!) do...
-//              fbvJobs.add(allJobs[i]); //add the job at allJobs[i] to fbvJobs
-//            }
-//        }
+
             for (HashMap<String, String> newJob : allJobs) {
-                boolean cake = false;
-                for (String bob : newJob.values()){
-                    if (bob.toUpperCase().contains((value.toUpperCase()))) {//if the current newJob contains the value as a key or value (not part of it!) do...
+                boolean cake = false; //a better variable name would be searchTermExists
+                for (String bob : newJob.values()){ //a better variable name would be valueData
+                    String upperBob = bob.toUpperCase();
+                    if (upperBob.contains(value.toUpperCase())) {//if the current newJob contains the value as a key or value (not part of it!) do...
                         cake = true;
-                        //does 106 need the adjoining toUpperCase?
                     }
                 }
                 if (cake){
