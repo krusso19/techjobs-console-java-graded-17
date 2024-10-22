@@ -99,7 +99,6 @@ public class JobData {
 //        for (int i = 0; i < allJobs.size(); i++){ //creates loop that will iterate through all of the jobs in allJobs ArrayList
 //            if (allJobs[i].containsKey(value) || allJobs[i].containsValue(value)){ //if allJobs at i contains the value as a key or value (not part of it!) do...
 //              fbvJobs.add(allJobs[i]); //add the job at allJobs[i] to fbvJobs
-        //This works for an Array, not an ArrayList
 //            }
 //        }
             for (HashMap<String, String> newJob : allJobs) {
