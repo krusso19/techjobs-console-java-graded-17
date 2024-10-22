@@ -35,9 +35,10 @@ public class JobData {
         ArrayList<String> values = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
+            //field.toUpperCase()//to make field uppercase
             String aValue = row.get(field);
 
-            if (!values.contains(aValue)) {
+            if (!values.contains(aValue)) { //add !values.toString.toUpperCase().contains(aValue.toUpperCase()) ?
                 values.add(aValue);
             }
         }
@@ -94,8 +95,29 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        ArrayList<HashMap<String, String>> fbvJobs = new ArrayList<>(); //creates array list fbvJobs to store the jobs
+//        for (int i = 0; i < allJobs.size(); i++){ //creates loop that will iterate through all of the jobs in allJobs ArrayList
+//            if (allJobs[i].containsKey(value) || allJobs[i].containsValue(value)){ //if allJobs at i contains the value as a key or value (not part of it!) do...
+//              fbvJobs.add(allJobs[i]); //add the job at allJobs[i] to fbvJobs
+        //This works for an Array, not an ArrayList
+//            }
+//        }
+            for (HashMap<String, String> newJob : allJobs) {
+                boolean cake = false;
+                for (String bob : newJob.values()){
+                    if (bob.toUpperCase().contains((value.toUpperCase()))) {//if the current newJob contains the value as a key or value (not part of it!) do...
+                        cake = true;
+                        //does 106 need the adjoining toUpperCase?
+                    }
+                }
+                if (cake){
+                    fbvJobs.add(newJob); //add the newJob to fbvJobs
+                }
+
+            }
         // TODO - implement this method
-        return null;
+        // Next Step: Search all words not just keys and values. which is a change to line 106
+        return fbvJobs;
     }
 
     /**

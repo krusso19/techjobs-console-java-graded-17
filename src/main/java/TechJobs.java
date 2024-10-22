@@ -60,9 +60,11 @@ public class TechJobs {
                 // What is their search term?
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
+                //ADD searchTerm.toUpperCase() to line 67?
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not implemented yet.");
+                    //System.out.println("Search all fields not implemented yet.");
+                    printJobs(JobData.findByValue(searchTerm)); //This works!! WOO. for search terms in KEY or VALUE. not all.
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -121,20 +123,35 @@ public class TechJobs {
     //Chp 3 > ArrayList Iteration did not help
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) { //given
        if (someJobs.size() == 0){
-           System.out.println("No Results");
+           System.out.print("No Results");
        } else{
-        for (int i = 0; i < someJobs.size(); i++) {
+        for (int i = 0; i < someJobs.size(); i++) { //next step: make a nested loop so if a new type was created, it would still work
+            //nested loop. Loops over a hashmap. In the chapter and below?
+            //index is the first line? like number of keys?
+            //for (Map.Entry<String, String> someJobs: someJobs.set()){
+              //  System.out.println(someJobs.getKey()+ " ("+someJobs.getValue()+")");
+            //}
+            //for (String someJobs : someJobs.keySet()){
+              //  System.out.println(someJobs);
+            //}
+            //QQQ: someJobs is an ArrayList. How do I break that into a HashMap in order to iterate over the HashMap
+            //---hashmap iteration is above and in the textbook chapter 3
+//            System.out.println("\n*****");
+//            for (int i = 0; i < someJobs.keySet.size() ; i++) { //keySet and other hashmap methods are not working. it is imported.
+//                System.out.println("\n"+someJobs.get(i) + ": " + someJobs.get(i).get(/*code to get name of key*/));
+//            }
+//            System.out.println(("\n*****"));
+
+
             System.out.println("\n*****\n" +
                     "position type: " + someJobs.get(i).get("position type") +
                     "\nname: " + someJobs.get(i).get("name") +
                     "\nemployer: " + someJobs.get(i).get("employer") +
                     "\nlocation: " + someJobs.get(i).get("location") +
                     "\ncore competency: " + someJobs.get(i).get("core competency") +
-                    "\n*****"
-            );
+                    "\n*****");
         }
-        }
-
+       }
 
         //Iterates over a hashmap. Has correct output. Outputs everything not just some of the jobs
 //            for (HashMap<String, String> allJob : JobData.allJobs) {
@@ -145,7 +162,6 @@ public class TechJobs {
 //                "\ncore competency: "+ allJob.get("core competency")+
 //                "\n*****\n");
 //            }
-
 
         //System.out.println("printJobs is not implemented yet");
         //System.out.println(JobData.allJobs.size()); //89 currently
